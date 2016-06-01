@@ -4,31 +4,43 @@
 <meta charset="UTF-8">
 <title>Title of the document</title>
 <!-- jquery-->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <!-- bootstrap -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 <!-- full calendar -->
-<script src='http://fullcalendar.io/js/fullcalendar-2.7.2/lib/moment.min.js'></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.2/fullcalendar.min.css" rel="stylesheet" type="text/css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.2/fullcalendar.print.css" rel="stylesheet" type="text/css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.2/fullcalendar.min.js"></script>
-<script>
+<link href="http://fullcalendar.io/js/fullcalendar-2.7.2/fullcalendar.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+<script type='text/javascript' src="http://fullcalendar.io/js/fullcalendar-2.7.2/fullcalendar.min.js"></script>
+<script type='text/javascript'>
 $(document).ready(function() {
-    $('#calendar').fullCalendar();
+    $('#calendar').fullCalendar({
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+		},
+        defaultView: 'agendaDay',
+        editable: true,
+        minTime:'08:00:00',
+        maxTime:'22:00:00',
+        selectable:true,
+        allDaySlot: false,
+    });
 });
 </script>
 </head>
 
 <body>
 <div class="container">
-    <form>
+    <form class="form-inline">
         <div class="form-group">
             <label>Date:</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control"/>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Search</button>
     </form>
+    <p>&nbsp;</p>
     <div id="calendar"></div>
 </div>
 </body>
